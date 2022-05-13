@@ -1,5 +1,5 @@
 import React from "react"
-import { Feather as VectorIcon } from "@expo/vector-icons"
+import { VectorIcon } from "./styles"
 
 export default function Icon(props) {
     return (

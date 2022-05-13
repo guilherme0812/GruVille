@@ -26,7 +26,7 @@ export default function AuthRoutes() {
                 },
             })}
         >
-            <Tab.Screen name="Home" component={Home} options={{ title: "Início" }} />
+            <Tab.Screen name="Home" component={Home} options={{ title: "Início", headerShown: false }} />
             <Tab.Screen name="Map" component={Map} options={{ title: "Mapa" }} />
         </ Tab.Navigator>
     )

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { StatusBar } from "expo-status-bar"
 import {
 	useFonts,
@@ -13,14 +13,22 @@ import { NavigationContainer } from "@react-navigation/native"
 import AppLoading from "expo-app-loading"
 
 //redux
-import { Provider, useSelector } from "react-redux"
+import { Provider, useSelector,useDispatch } from "react-redux"
 import { PersistGate } from "redux-persist/integration/react"
 import { store, persistor } from "./src/redux"
 import { ThemeProvider } from "styled-components"
+import { resetAction } from "./src/redux/modules/settings/actions"
+
 
 function AppContent() {
 	const { theme } = useSelector((state) => state.settings)
+	const dispatch = useDispatch()
+	
+	useEffect(() => {
+		dispatch(resetAction())
+	}, [])
 
+	console.log(theme.colors)
 	let [fontsLoaded] = useFonts({
 		"regular": Inter_400Regular,
 		"medium": Inter_500Medium,

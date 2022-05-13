@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "inovacao-app",
-    "slug": "inovacao-app",
+    "name": "GruVille",
+    "slug": "GruVille",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

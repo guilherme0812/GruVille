@@ -1,10 +1,11 @@
 import React from "react"
-import { View, Text } from "react-native"
+import { View } from "react-native"
+import Header from "./Header"
 
 export default function Home({ navigation }) {
     return (
         <View>
-            <Text>Home</Text>
+            <Header />
         </View>
     )
 }
