@@ -1,11 +1,17 @@
 import styled from "styled-components/native"
+import Text from "../Text"
 
-export const Container = styled.View`
-    flex: 1;
+export const Container = styled.TouchableOpacity`
+    width: 100%;
+    height: 50px;
+    display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: ${({ theme }) => theme.metrics.padding}px;
+    background-color: ${({ theme }) => theme.colors.primary};
 `
 
-export const Text = styled.Text`
-    font-size: 16px;
+export const Title = styled(Text)`
+    font-family: "bold";
+    color: ${({ theme }) => theme.colors.textContrast};
 `

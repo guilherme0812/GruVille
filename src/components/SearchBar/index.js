@@ -5,8 +5,8 @@ import { Container, InputIcon, TextInput } from "./styles.js"
 export default function SearchBar(props) {
     return (
         <Container>
-            <InputIcon name="search" returnKeyType="search" />
-            <TextInput {...props} />
+            <InputIcon name="search" />
+            <TextInput returnKeyType="search" {...props} />
         </Container>
     )
 }

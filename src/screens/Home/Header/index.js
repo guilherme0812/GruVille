@@ -1,4 +1,3 @@
-import React from "react"
 import { SearchBar, Text } from "../../../components"
 
 import { Container, Subtitle, Title, WeatherContainer, WeatherImage, WeatherText } from "./styles"

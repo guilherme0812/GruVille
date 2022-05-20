@@ -1,13 +1,9 @@
-import React from "react"
+import { Container, Title } from "./styles.js"
 
-import {Container, Text} from "./styles.js"
-
-export default function Button() {
-    return(
-        <Container>
-            <Text>
-                Componente Button criado com sucesso!
-            </Text>
+export default function Button({ title, ...props }) {
+    return (
+        <Container {...props}>
+            <Title>{title}</Title>
         </Container>
     )
 }

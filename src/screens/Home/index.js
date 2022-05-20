@@ -1,12 +1,17 @@
-import React from "react"
-import { StatusBar } from "expo-status-bar"
-import { View } from "react-native"
+import { Text } from "react-native"
 import Header from "./Header"
+import { Card } from "../../components"
+
+import { Container } from "./styles"
 
 export default function Home({ navigation }) {
     return (
-        <View>
+        <>
             <Header />
-        </View>
+            <Container>
+                <Text></Text>
+                <Card></Card>
+            </Container>
+        </>
     )
 }

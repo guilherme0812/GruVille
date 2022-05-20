@@ -8,7 +8,8 @@ export const Container = styled.View`
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
-    border-radius: ${({ theme }) => theme.metrics.padding}px;
+    border-bottom-left-radius: ${({ theme }) => theme.metrics.padding}px;
+    border-bottom-right-radius: ${({ theme }) => theme.metrics.padding}px;
     background-color: ${({ theme }) => theme.colors.primary};
 `
 
