@@ -1,26 +1,34 @@
 import { View } from "react-native"
 import Button from "../Button"
 import Text from "../Text"
-import { Container, Content, DateContainer, DayText, Image, MonthText, SubTitle, Title, Header, OtherInfoText, Head } from "./styles"
+import moment from "moment"
 
-export default function Card({ cover, title, subTitle, day, month }) {
+import { Container, Content, DateContainer, DayText, Image, MonthText, SubTitle, Title, Header, OtherInfoText, Head, OtherInfoContainer, OtherInfoIcon } from "./styles"
+
+export default function Card({ cover, date, title, local, address, startTime, endTime }) {
     return (
         <Container>
             <Header>
-                <Image source={require("../../../assets/cardimage.jpg")} />
+                <Image source={cover} />
                 <DateContainer>
-                    <DayText>19</DayText>
-                    <MonthText>Julho</MonthText>
+                    <DayText>{moment(date).format("DD")}</DayText>
+                    <MonthText>{moment(date).format("MMM")}</MonthText>
                 </DateContainer>
             </Header>
             <Content>
                 <Head>
-                    <Title>Festival de Dança 2022</Title>
-                    <SubTitle>Centreventos Cau Hansen</SubTitle>
+                    <Title>{title}</Title>
+                    <SubTitle>{local}</SubTitle>
                 </Head>
                 <View>
-                    <OtherInfoText>Av. José Vieira, 315 - América</OtherInfoText>
-                    <OtherInfoText>20:00 - 22:00</OtherInfoText>
+                    <OtherInfoContainer>
+                        <OtherInfoIcon name="map-pin" />
+                        <OtherInfoText>{address}</OtherInfoText>
+                    </OtherInfoContainer>
+                    <OtherInfoContainer>
+                        <OtherInfoIcon name="clock" />
+                        <OtherInfoText>{startTime} - {endTime}</OtherInfoText>
+                    </OtherInfoContainer>
                 </View>
             </Content>
             <Button title="Ver mais" />

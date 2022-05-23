@@ -13,22 +13,25 @@ import { NavigationContainer } from "@react-navigation/native"
 import AppLoading from "expo-app-loading"
 
 //redux
-import { Provider, useSelector,useDispatch } from "react-redux"
+import { Provider, useSelector, useDispatch } from "react-redux"
 import { PersistGate } from "redux-persist/integration/react"
 import { store, persistor } from "./src/redux"
-import { ThemeProvider } from "styled-components"
+import { ThemeProvider } from "styled-components/native"
 import { resetAction } from "./src/redux/modules/settings/actions"
 
+import moment from "moment"
+import 'moment/min/locales'
+import getTheme from "./src/theme"
+moment.updateLocale('pt-br')
 
 function AppContent() {
 	const { theme } = useSelector((state) => state.settings)
 	const dispatch = useDispatch()
-	
+
 	useEffect(() => {
 		dispatch(resetAction())
 	}, [])
 
-	console.log(theme.colors)
 	let [fontsLoaded] = useFonts({
 		"regular": Inter_400Regular,
 		"medium": Inter_500Medium,
@@ -38,8 +41,8 @@ function AppContent() {
 
 	if (fontsLoaded) {
 		return (
-			<NavigationContainer theme={theme}>
-				<ThemeProvider theme={theme}>
+			<NavigationContainer theme={getTheme()}>
+				<ThemeProvider theme={getTheme()}>
 					<StatusBar />
 					<Navigation />
 				</ThemeProvider>

@@ -1,4 +1,4 @@
-import produce from "immer/dist/immer.esm"
+import produce from "immer"
 import getTheme from "../../../theme"
 import types from "./types"
 

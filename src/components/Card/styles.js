@@ -1,4 +1,5 @@
 import styled from "styled-components/native"
+import Icon from "../Icon"
 import Text from "../Text"
 
 export const Container = styled.View.attrs(({ theme }) => ({
@@ -45,7 +46,6 @@ export const DateContainer = styled.View.attrs(({ theme }) => ({
 `
 
 export const DayText = styled(Text)`
-    font-size: 18px;
     font-family: "semiBold";
     color: ${({ theme }) => theme.colors.primary};
 `
@@ -55,7 +55,7 @@ export const MonthText = styled(Text).attrs(() => ({
     ellipsizeMode: "tail",
     maxLenght: 3
 }))`
-    font-size: 14px;
+    text-transform: capitalize;
 `
 
 export const Content = styled.View`
@@ -72,6 +72,19 @@ export const Title = styled(Text)`
 
 export const SubTitle = styled(Text)`
     font-size: 14px;
+    color: ${({ theme }) => theme.colors.textAlt};
+`
+
+export const OtherInfoContainer = styled.View`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+`
+
+export const OtherInfoIcon = styled(Icon)`
+    font-size: 14px;
+    margin-right: 6px;
     color: ${({ theme }) => theme.colors.textAlt};
 `
 

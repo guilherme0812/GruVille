@@ -3,7 +3,7 @@ import { Text } from "../../../components"
 
 export const Container = styled.View`
     width: 100%;
-    height: 220px;
+    height: ${({theme}) => theme.metrics.headerHeight}px;
     padding: ${({ theme }) => theme.metrics.padding}px;
     display: flex;
     align-items: flex-start;
