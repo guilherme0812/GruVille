@@ -9,7 +9,7 @@ import {
 } from "@expo-google-fonts/inter"
 import Navigation from "./src/navigation"
 import { NavigationContainer } from "@react-navigation/native"
-
+import 'react-native-gesture-handler'
 import AppLoading from "expo-app-loading"
 
 //redux
@@ -22,6 +22,7 @@ import { resetAction } from "./src/redux/modules/settings/actions"
 import moment from "moment"
 import 'moment/min/locales'
 import getTheme from "./src/theme"
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 moment.updateLocale('pt-br')
 
 function AppContent() {
@@ -41,12 +42,14 @@ function AppContent() {
 
 	if (fontsLoaded) {
 		return (
-			<NavigationContainer theme={getTheme()}>
-				<ThemeProvider theme={getTheme()}>
-					<StatusBar />
-					<Navigation />
-				</ThemeProvider>
-			</NavigationContainer>
+			<GestureHandlerRootView style={{ flex: 1 }}>
+				<NavigationContainer theme={getTheme()}>
+					<ThemeProvider theme={getTheme()}>
+						<StatusBar />
+						<Navigation />
+					</ThemeProvider>
+				</NavigationContainer>
+			</GestureHandlerRootView>
 		)
 	} else {
 		return <AppLoading />

@@ -1,18 +1,20 @@
+import { useState } from "react"
 import Header from "./Header"
-import { Card, List } from "../../components"
-import moment from "moment"
+import Option from "./Option"
+import { BottomSheet, Card, List } from "../../components"
 
 import { Container } from "./styles"
-import Option from "./Option"
+import Details from "./Details"
 
 export default function Home({ navigation }) {
+    const [bottomSheet, setBottomSheet] = useState({ visible: false, data: {} })
     const data = [
         {
             cover: { uri: "https://cafeviagem.com/wp-content/uploads/2019/05/vinicolas-em-Santa-Catarina-d3.jpg" },
             title: "Festival de Dança 2022",
             local: "Centreventos Cau Hansen",
             address: "Av. José Vieira, 315 - América",
-            date: moment(new Date("2022/07/19")).format("YYYY-MM-DD"),
+            date: new Date("2022/07/19"),
             startTime: "20:00",
             endTime: "22:00"
         },
@@ -21,7 +23,7 @@ export default function Home({ navigation }) {
             title: "Degustação de vinhos",
             local: "Vinícola D'alture",
             address: "Rodovia SC 114",
-            date: moment(new Date("2022/07/20")).format("YYYY-MM-DD"),
+            date: new Date("2022/07/20"),
             startTime: "07:30",
             endTime: "09:00"
         }
@@ -45,6 +47,7 @@ export default function Home({ navigation }) {
                 date={item.date}
                 startTime={item.startTime}
                 endTime={item.endTime}
+                onPress={() => setBottomSheet({ ...bottomSheet, visible: true, data: item })}
             />
         )
     }
@@ -94,6 +97,10 @@ export default function Home({ navigation }) {
                     horizontal
                 />
             </Container>
+
+            <BottomSheet visible={bottomSheet.visible} onClose={() => setBottomSheet({ ...bottomSheet, visible: false })}>
+                <Details data={bottomSheet.data} />
+            </BottomSheet>
         </>
     )
 }

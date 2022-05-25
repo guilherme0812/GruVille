@@ -1,9 +1,9 @@
 import { Container, Title } from "./styles"
 
-export default function Button({ title, ...props }) {
+export default function Button({ title, type, ...props }) {
     return (
-        <Container {...props}>
-            <Title>{title}</Title>
+        <Container type={type} {...props}>
+            <Title type={type} >{title}</Title>
         </Container>
     )
 }

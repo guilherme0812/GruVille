@@ -5,7 +5,7 @@ import moment from "moment"
 
 import { Container, Content, DateContainer, DayText, Image, MonthText, SubTitle, Title, Header, OtherInfoText, Head, OtherInfoContainer, OtherInfoIcon } from "./styles"
 
-export default function Card({ cover, date, title, local, address, startTime, endTime }) {
+export default function Card({ cover, date, title, local, address, startTime, endTime, onPress }) {
     return (
         <Container>
             <Header>
@@ -31,7 +31,7 @@ export default function Card({ cover, date, title, local, address, startTime, en
                     </OtherInfoContainer>
                 </View>
             </Content>
-            <Button title="Ver mais" />
+            <Button title="Ver mais" onPress={onPress} />
         </Container>
     )
 }
