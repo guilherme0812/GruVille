@@ -1,10 +1,9 @@
-import { Text } from "react-native"
 import Header from "./Header"
 import { Card, List } from "../../components"
 import moment from "moment"
 
 import { Container } from "./styles"
-import OptionsBar from "./OptionsBar"
+import Option from "./Option"
 
 export default function Home({ navigation }) {
     const data = [
@@ -28,7 +27,15 @@ export default function Home({ navigation }) {
         }
     ]
 
-    function renderItem({ item }) {
+    const categorys = [
+        { id: '001', title: 'cinema', image: require('../../../assets/icons/cinema-icon.png') },
+        { id: '002', title: 'música', image: require('../../../assets/icons/cinema-icon.png') },
+        { id: '003', title: 'teatro', image: require('../../../assets/icons/cinema-icon.png') },
+        { id: '004', title: 'tecnologia', image: require('../../../assets/icons/cinema-icon.png') },
+        { id: '005', title: 'arte', image: require('../../../assets/icons/cinema-icon.png') },
+    ]
+
+    function renderEventsItem({ item }) {
         return (
             <Card
                 cover={item.cover}
@@ -42,30 +49,48 @@ export default function Home({ navigation }) {
         )
     }
 
+    function renderCategorysItem({ item }) {
+        return (
+            <Option
+                title={item.title}
+                image={item.image}
+            />
+        )
+    }
+
     return (
         <>
             <Header />
             <Container>
-                <OptionsBar/>
+                <List
+                    data={categorys}
+                    renderItem={renderCategorysItem}
+                    keyExtractor={(item, index) => index}
+                    horizontal
+                />
+
                 <List
                     title="Nesta semana"
                     data={data}
-                    renderItem={renderItem}
+                    renderItem={renderEventsItem}
                     keyExtractor={(item, index) => index}
+                    height="big"
                     horizontal
                 />
                 <List
                     title="Na próxima semana"
                     data={data}
-                    renderItem={renderItem}
+                    renderItem={renderEventsItem}
                     keyExtractor={(item, index) => index}
+                    height="big"
                     horizontal
                 />
                 <List
                     title="Mês que vem"
                     data={data}
-                    renderItem={renderItem}
+                    renderItem={renderEventsItem}
                     keyExtractor={(item, index) => index}
+                    height="big"
                     horizontal
                 />
             </Container>

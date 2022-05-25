@@ -2,7 +2,8 @@ import styled from "styled-components/native"
 import Text from "../Text"
 
 export const Container = styled.View`
-    height: 420px;
+    height: ${({ height }) => height === "big" ? "420px" : "auto"};
+    margin-bottom: ${({ height, theme }) => height === "big" ? "0" : theme.metrics.padding * 2}px;
 `
 
 export const Header = styled.View`
@@ -18,6 +19,7 @@ export const Title = styled(Text)`
 export const FlatList = styled.FlatList.attrs(({ theme }) => ({
     contentContainerStyle: { paddingLeft: theme.metrics.padding, paddingRight: theme.metrics.padding }
 }))``
+
 
 export const ListSeparator = styled.View`
     width: ${({ theme }) => theme.metrics.padding}px;

@@ -1,16 +1,15 @@
-import React from 'react';
-import {Image, Text} from 'react-native'
-import { Container, Dot, Title } from './styles';
+import { Image, TouchableOpacity } from "react-native"
+import { Dot, Title } from "./styles"
 
-const Option = ({text, source}) => {
-  console.log(source)
-  return (
-    <Container>
-      <Dot>
-        <Image/>
-      </Dot>
-      <Title>{text}</Title>
-    </Container>
-  )
+const Option = ({ title, image, ...props }) => {
+	return (
+		<TouchableOpacity {...props}>
+			<Dot>
+				<Image source={image} />
+			</Dot>
+			<Title>{title}</Title>
+		</TouchableOpacity>
+	)
 }
+
 export default Option

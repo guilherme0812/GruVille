@@ -6,9 +6,3 @@ export const Container = styled.ScrollView.attrs(({ theme }) => ({
     flex: 1;
     width: 100%;
 `
-
-export const ListSeparator = styled.View`
-    width: ${({ theme }) => theme.metrics.padding}px;
-`
-
-export const ListTitle = styled.Text``

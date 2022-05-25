@@ -5,7 +5,7 @@ export default {
     margin: 16,
     ...Platform.select({
         web: { headerHeight: 160 },
-        android: { headerHeight: 220 },
+        android: { headerHeight: 200 },
         ios: { headerHeight: 220 }
     })
 }
