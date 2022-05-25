@@ -10,7 +10,7 @@ export const Header = styled.View`
     margin-bottom: ${({ theme }) => theme.metrics.padding}px;
 `
 
-export const Tilte = styled(Text)`
+export const Title = styled(Text)`
     font-family: "bold";
     font-size: 24px;
 `

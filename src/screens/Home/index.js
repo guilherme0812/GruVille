@@ -4,11 +4,12 @@ import { Card, List } from "../../components"
 import moment from "moment"
 
 import { Container } from "./styles"
+import OptionsBar from "./OptionsBar"
 
 export default function Home({ navigation }) {
     const data = [
         {
-            cover: { uri: "https://cisnenegro.com.br/wp-content/uploads/2021/10/Sem-titulo-1.jpg" },
+            cover: { uri: "https://cafeviagem.com/wp-content/uploads/2019/05/vinicolas-em-Santa-Catarina-d3.jpg" },
             title: "Festival de Dança 2022",
             local: "Centreventos Cau Hansen",
             address: "Av. José Vieira, 315 - América",
@@ -45,6 +46,7 @@ export default function Home({ navigation }) {
         <>
             <Header />
             <Container>
+                <OptionsBar/>
                 <List
                     title="Nesta semana"
                     data={data}

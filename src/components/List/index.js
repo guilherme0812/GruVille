@@ -1,10 +1,10 @@
-import { Container, ListSeparator, Tilte, FlatList, Header } from "./styles"
+import { Container, ListSeparator, Title, FlatList, Header } from "./styles"
 
 export default function List({ title, ...props }) {
     return (
         <Container>
             <Header>
-                <Tilte>{title}</Tilte>
+                <Title>{title}</Title>
             </Header>
             <FlatList
                 ItemSeparatorComponent={() => <ListSeparator />}

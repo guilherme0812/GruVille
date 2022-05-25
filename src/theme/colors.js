@@ -13,5 +13,6 @@ export const lightTheme = {
         card: "#ffffff",
         shadow: "#0000001A",
         background: "#ffffff",
+        backgroundDot: "#cccccc"
     }
 }
