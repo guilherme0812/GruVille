@@ -1,9 +1,8 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  margin-left: ${({theme}) => theme.metrics.padding}px;
+  margin-right: ${({theme}) => theme.metrics.padding}px;
   margin-bottom: ${({theme}) => theme.metrics.padding}px;
-  width: 75px;
 `
 
 export const Dot = styled.TouchableOpacity`

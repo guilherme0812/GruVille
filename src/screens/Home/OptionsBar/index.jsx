@@ -8,7 +8,7 @@ const data = [
   {id: '002', text: 'música', source: '../../../../assets/icons/cinema-icon.png'},
   {id: '003', text: 'teatro', source: '../../../../assets/icons/cinema-icon.png'},
   {id: '004', text: 'tecnologia', source: '../../../../assets/icons/cinema-icon.png'},
-  {id: '004', text: 'arte', source: '../../../../assets/icons/cinema-icon.png'},
+  {id: '005', text: 'arte', source: '../../../../assets/icons/cinema-icon.png'},
 ]
 
 
