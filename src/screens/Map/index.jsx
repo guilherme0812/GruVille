@@ -1,16 +1,16 @@
 import React from "react"
-import { StatusBar } from "expo-status-bar"
 import { View, Text, Dimensions } from "react-native"
-import MapView from 'react-native-maps'
 import Header from "./Header"
+
+import { MapContainer } from "./styles"
 
 const {width, height} = Dimensions.get('screen')
 
-export default function Map({ navigation }) {
+export default function Map({ navigation, ...props }) {
     return (
         <View>
             <Header />
-            <MapView style={{width: width, height: height}}/>
+            <MapContainer />
         </View>
     )
 }
