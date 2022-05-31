@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 //screens
 import Home from "../../screens/Home"
 import Map from "../../screens/Map"
+import Profile from "../../screens/Profile"
 
 //components
 import { Icon } from "../../components"
@@ -19,6 +20,8 @@ export default function AuthRoutes() {
                         iconName = focused ? "home" : "home"
                     } else if (route.name === "Map") {
                         iconName = focused ? "map" : "map"
+                    } else if (route.name === "Profile") {
+                        iconName = focused ? "user" : "user"
                     }
 
                     return <Icon name={iconName} size={size} color={color} />
@@ -26,7 +29,8 @@ export default function AuthRoutes() {
             })}
         >
             <Tab.Screen name="Home" component={Home} options={{ title: "Início", headerShown: false }} />
-            <Tab.Screen name="Map" component={Map} options={{ title: "Mapa" }} />
+            <Tab.Screen name="Map" component={Map} options={{ title: "Mapa", headerShown: false }} />
+            <Tab.Screen name="Profile" component={Profile} options={{ title: "Perfil" }} />
         </ Tab.Navigator>
     )
 }

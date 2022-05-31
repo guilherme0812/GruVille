@@ -3,6 +3,8 @@ import { Button, Text } from "../../../components"
 
 export const Container = styled.View`
     flex: 1;
+    width: 100%;
+    padding-bottom: ${({theme}) => theme.metrics.padding}px;
     justify-content: space-between;
 `
 
@@ -32,4 +34,3 @@ export const Subtitle = styled(Text)`
 export const SecondaryButton = styled(Button)`
     margin-bottom: ${({ theme }) => theme.metrics.padding}px;
 `
-
