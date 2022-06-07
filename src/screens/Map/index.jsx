@@ -3,6 +3,7 @@ import { View, Text } from "react-native"
 import Header from "./Header"
 import Marker from "./Marker"
 import { BottomSheet } from "../../components"
+import Details from "./Details"
 
 import { MapContainer } from "./styles"
 
@@ -71,7 +72,7 @@ export default function Map({ navigation, ...props }) {
                 onChange={() => setBottomSheet({ ...bottomSheet, visible: false })}
                 snapPoints={["20%", "90%"]}
             >
-                <Text>{bottomSheet.data.title}</Text>
+                <Details data={bottomSheet.data} />
             </BottomSheet>
         </View>
     )
