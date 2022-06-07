@@ -1,16 +1,38 @@
-import React from "react"
+import React, { useState } from "react"
+import { Marker, Callout  } from 'react-native-maps';
 import { View, Text, Dimensions } from "react-native"
 import Header from "./Header"
 
 import { MapContainer } from "./styles"
 
-const {width, height} = Dimensions.get('screen')
+const { width, height } = Dimensions.get('screen')
 
 export default function Map({ navigation, ...props }) {
+    const [region, setRegion] = useState({
+        latitude: -26.3051,
+        longitude: -48.8461,
+        latitudeDelta: 0.095,
+        longitudeDelta: 0.095,
+    })
+
     return (
         <View>
             <Header />
-            <MapContainer />
+            <MapContainer
+                initialRegion={{
+                    latitude: -26.3051,
+                    longitude: -48.8461,
+                    latitudeDelta: 0.095,
+                    longitudeDelta: 0.095,
+                }}
+            >
+                <Marker
+                    title="Evento de estátuas de Lego"
+                    description="Primeiro evento municipal de competição de estatuas de Lego"
+                    coordinate={{ latitude: -26.3051, longitude: -48.8461 }}
+                    image={{uri: 'https://trovesaurus.com/data/catalog/c_m_pinata_ui.png'}}
+                />
+            </MapContainer>
         </View>
     )
 }
