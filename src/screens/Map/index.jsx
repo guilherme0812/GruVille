@@ -4,13 +4,20 @@ import Header from "./Header"
 
 import { MapContainer } from "./styles"
 
-const {width, height} = Dimensions.get('screen')
+const { width, height } = Dimensions.get('screen')
 
 export default function Map({ navigation, ...props }) {
+    const initial = {
+        longitude: -48.8461,
+        latitude: -26.3051,
+        latitudeDelta: 0.1,
+        longitudeDelta: 0.1
+    }
+
     return (
         <View>
             <Header />
-            <MapContainer />
+            <MapContainer region={initial} />
         </View>
     )
 }
