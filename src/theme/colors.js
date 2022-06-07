@@ -12,7 +12,7 @@ export const lightTheme = {
         textContrast: "#ffffff",
         card: "#ffffff",
         shadow: "#0000001A",
-        background: "#ffffff",
+        background: "#FFFFFF",
         backgroundDot: "#dddddd"
     }
 }

@@ -3,15 +3,15 @@ import { Icon, Text, Button } from "../../../components"
 
 import { Container, Header, Image, Subtitle, Title, SecondaryButton } from "./styles"
 
-export default function Details({ cover, image, title, local, description, ...props }) {
+export default function Details({ data, ...props }) {
     return (
         <Container>
             <View>
-                <Image source={cover} />
+                <Image source={data.cover} />
                 <Header>
                     <View>
-                        <Title>{title}</Title>
-                        <Subtitle>{local}</Subtitle>
+                        <Title>{data.title}</Title>
+                        <Subtitle>{data.local}</Subtitle>
                     </View>
                     <TouchableOpacity>
                         <Icon name="share-2" />
@@ -19,7 +19,7 @@ export default function Details({ cover, image, title, local, description, ...pr
                 </Header>
             </View>
             <ScrollView style={{ flex: 1 }}>
-                <Text>{description}</Text>
+                <Text>{data.description}</Text>
             </ScrollView>
             <View>
                 <SecondaryButton title="Saiba mais" type="secondary" />

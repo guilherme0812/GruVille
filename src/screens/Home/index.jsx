@@ -10,13 +10,16 @@ export default function Home({ navigation }) {
     const [bottomSheet, setBottomSheet] = useState({ visible: false, data: {} })
     const data = [
         {
-            cover: { uri: "https://cafeviagem.com/wp-content/uploads/2019/05/vinicolas-em-Santa-Catarina-d3.jpg" },
+            cover: { uri: "https://files.nsctotal.com.br/s3fs-public/graphql-upload-files/festival-danca-joinville_3.jpg?_r.2Hx3E4zg9IeReCRCe_MyBJs3osjzD" },
             title: "Festival de Dança 2022",
             local: "Centreventos Cau Hansen",
             address: "Av. José Vieira, 315 - América",
             date: new Date("2022/07/19"),
             startTime: "20:00",
-            endTime: "22:00"
+            endTime: "22:00",
+            description: "Uma breve descrição do evento clicado anteriormente pelo usuário.",
+            cordinate: { latitude: -26.3051, longitude: -48.8461 },
+            category: "música"
         },
         {
             cover: { uri: "https://cafeviagem.com/wp-content/uploads/2019/05/vinicolas-em-Santa-Catarina-d3.jpg" },
@@ -25,7 +28,10 @@ export default function Home({ navigation }) {
             address: "Rodovia SC 114",
             date: new Date("2022/07/20"),
             startTime: "07:30",
-            endTime: "09:00"
+            endTime: "09:00",
+            description: "Uma breve descrição do evento clicado anteriormente pelo usuário.",
+            cordinate: { latitude: -26.3051, longitude: -48.8461 },
+            category: "cinema"
         }
     ]
 
@@ -47,7 +53,7 @@ export default function Home({ navigation }) {
                 date={item.date}
                 startTime={item.startTime}
                 endTime={item.endTime}
-                onPress={() => setBottomSheet({ ...bottomSheet, visible: true, data: item })}
+                onPress={() => setBottomSheet({ ...bottomSheet, data: item, visible: true, })}
             />
         )
     }
@@ -98,7 +104,10 @@ export default function Home({ navigation }) {
                 />
             </Container>
 
-            <BottomSheet visible={bottomSheet.visible} onClose={() => setBottomSheet({ ...bottomSheet, visible: false })}>
+            <BottomSheet
+                visible={bottomSheet.visible}
+                onChange={() => setBottomSheet({ ...bottomSheet, visible: false })}
+            >
                 <Details data={bottomSheet.data} />
             </BottomSheet>
         </>

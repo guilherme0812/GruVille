@@ -9,5 +9,5 @@ export const Container = styled.View`
     align-items: center;
     justify-content: flex-end;
     background-color: transparent;
-    z-index: 99;
+    z-index: 1;
 `
