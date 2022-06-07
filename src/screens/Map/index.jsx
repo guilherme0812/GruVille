@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { Marker, Callout  } from 'react-native-maps';
 import { View, Text, Dimensions } from "react-native"
 import Header from "./Header"
+import Marker from "./Marker";
 
 import { MapContainer } from "./styles"
 
@@ -27,10 +27,10 @@ export default function Map({ navigation, ...props }) {
                 }}
             >
                 <Marker
-                    title="Evento de estátuas de Lego"
+                    title="Evento teste de estátuas de Lego"
                     description="Primeiro evento municipal de competição de estatuas de Lego"
                     coordinate={{ latitude: -26.3051, longitude: -48.8461 }}
-                    image={{uri: 'https://trovesaurus.com/data/catalog/c_m_pinata_ui.png'}}
+                    image={{ uri: 'https://trovesaurus.com/data/catalog/c_m_pinata_ui.png' }}
                 />
             </MapContainer>
         </View>
