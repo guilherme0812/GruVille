@@ -3,7 +3,8 @@ import Icon from "../Icon"
 import Text from "../Text"
 
 export const Container = styled.View.attrs(({ theme }) => ({
-    elevation: theme.metrics.padding
+    elevation: theme.metrics.padding,
+    shadowColor: theme.colors.shadow
 }))`
     width: 250px;
     height: 340px;

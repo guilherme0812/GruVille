@@ -7,9 +7,11 @@ import Profile from "../../screens/Profile"
 
 //components
 import { Icon } from "../../components"
+import { useSelector } from 'react-redux';
 
 const Tab = createBottomTabNavigator()
 export default function AuthRoutes() {
+    const { theme } = useSelector((state) => state.settings)
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -26,6 +28,9 @@ export default function AuthRoutes() {
 
                     return <Icon name={iconName} size={size} color={color} />
                 },
+                tabBarStyle: {
+                    backgroundColor: theme.colors.background,
+                }
             })}
         >
             <Tab.Screen name="Home" component={Home} options={{ title: "Início", headerShown: false }} />

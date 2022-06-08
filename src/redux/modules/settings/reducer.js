@@ -10,7 +10,7 @@ export default function settings(state = INITIAL_STATE, action) {
     switch (action.type) {
         case types.THEME_SWITCH:
             return produce(state, draft => {
-                state.theme.dark ? draft.theme = getTheme(false) : draft.theme = getTheme(true)
+                action.payload != "" ? draft.theme = getTheme(action.payload) : draft.theme = getTheme()
             })
         case types.RESET:
             return produce(state, (draft) => {
