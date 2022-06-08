@@ -32,7 +32,8 @@ export const Image = styled.Image`
 `
 
 export const DateContainer = styled.View.attrs(({ theme }) => ({
-    elevation: theme.metrics.padding
+    elevation: theme.metrics.padding,
+    shadowColor: theme.colors.shadow
 }))`
     width: 60px;
     height: 60px;

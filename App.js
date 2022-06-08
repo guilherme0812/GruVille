@@ -27,11 +27,14 @@ moment.updateLocale('pt-br')
 function AppContent() {
 	const { theme } = useSelector((state) => state.settings)
 	const dispatch = useDispatch()
+
 	useEffect(() => {
 		const hour = moment(new Date()).format("h")
-		const ampm = moment(hour).format("A")
+		const ampm = moment(new Date()).format("A")
 
-		if (hour >= 0 && hour <= 8 && ampm === "AM") {
+		if (hour >= 12 && hour <= 8 && ampm === "AM") {
+			dispatch(switchThemeAction("night"))
+		} else if (hour >= 6 && hour <= 11 && ampm === "PM") {
 			dispatch(switchThemeAction("night"))
 		} else {
 			dispatch(switchThemeAction(""))

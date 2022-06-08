@@ -7,7 +7,7 @@ export const lightTheme = {
         ...DefaultTheme.colors,
         primary: "#8280FF",
         secondary: "#DDDDDD",
-        secondaryContrast: "#ffffff",
+        secondaryContrast: "#000000",
         text: "#000000",
         textAlt: "#505050",
         textContrast: "#ffffff",
@@ -30,8 +30,8 @@ export const nightTheme = {
         textAlt: "#C2C2C2",
         textContrast: "#ffffff",
         card: "#16162C",
-        shadow: "#FFFFFF",
+        shadow: "#000000",
         background: "#0C0C18",
-        backgroundDot: "#f2f2f2",
+        backgroundDot: "#16162C",
     }
 }
