@@ -17,7 +17,7 @@ import { Provider, useSelector, useDispatch } from "react-redux"
 import { PersistGate } from "redux-persist/integration/react"
 import { store, persistor } from "./src/redux"
 import { ThemeProvider } from "styled-components/native"
-import { resetAction, switchThemeAction } from "./src/redux/modules/settings/actions"
+import { resetAction, setTime, switchThemeAction } from "./src/redux/modules/settings/actions"
 
 import moment from "moment"
 import 'moment/min/locales'

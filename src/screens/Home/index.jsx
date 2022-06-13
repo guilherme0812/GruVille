@@ -3,48 +3,19 @@ import Header from "./Header"
 import Option from "./Option"
 import { BottomSheet, Card, List } from "../../components"
 
-import { getCurrentWeather } from "../../services/climaTempoAPI"
 
 import { Container } from "./styles"
 import Details from "./Details"
+import { data } from "../../utils/data"
+import { categorys } from '../../utils/components'
+import { useRef } from "react"
+import { Animated } from "react-native"
 
 export default function Home({ navigation }) {
+    const scrollOffsetY = useRef(new Animated.Value(0)).current
     const [bottomSheet, setBottomSheet] = useState({ visible: false, data: {} })
-    const [weather, setWeather] = useState()
-    const data = [
-        {
-            cover: { uri: "https://files.nsctotal.com.br/s3fs-public/graphql-upload-files/festival-danca-joinville_3.jpg?_r.2Hx3E4zg9IeReCRCe_MyBJs3osjzD" },
-            title: "Festival de Dança 2022",
-            local: "Centreventos Cau Hansen",
-            address: "Av. José Vieira, 315 - América",
-            date: new Date("2022/07/19"),
-            startTime: "20:00",
-            endTime: "22:00",
-            description: "Uma breve descrição do evento clicado anteriormente pelo usuário.",
-            cordinate: { latitude: -26.3051, longitude: -48.8461 },
-            category: "música"
-        },
-        {
-            cover: { uri: "https://cafeviagem.com/wp-content/uploads/2019/05/vinicolas-em-Santa-Catarina-d3.jpg" },
-            title: "Degustação de vinhos",
-            local: "Vinícola D'alture",
-            address: "Rodovia SC 114",
-            date: new Date("2022/07/20"),
-            startTime: "07:30",
-            endTime: "09:00",
-            description: "Uma breve descrição do evento clicado anteriormente pelo usuário.",
-            cordinate: { latitude: -26.3051, longitude: -48.8461 },
-            category: "cinema"
-        }
-    ]
-
-    const categorys = [
-        { id: '001', title: 'cinema', image: require('../../../assets/icons/cinema-icon.png') },
-        { id: '002', title: 'música', image: require('../../../assets/icons/music-icon.png') },
-        { id: '003', title: 'teatro', image: require('../../../assets/icons/cinema-icon.png') },
-        { id: '004', title: 'tecnologia', image: require('../../../assets/icons/cinema-icon.png') },
-        { id: '005', title: 'arte', image: require('../../../assets/icons/cinema-icon.png') },
-    ]
+    const [searchText, setSearchText] = useState("")
+    const [searchResult, setSearchResult] = useState(data)
 
     function renderEventsItem({ item }) {
         return (
@@ -70,19 +41,39 @@ export default function Home({ navigation }) {
         )
     }
 
-    useEffect(() => {
-        async function getWeather() {
-            await getCurrentWeather().then((res) => {
-                setWeather(res.data)
-            })
-        }
-        getWeather()
-    }, [])
+    function search() {
+        const result = data.filter(element =>
+            element.title.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+            ||
+            element.category.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+            ||
+            element.city.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+            ||
+            element.local.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+        )
+
+        setSearchResult(result)
+    }
 
     return (
         <>
-            <Header weather={weather} />
-            <Container>
+            <Header animatedRef={scrollOffsetY} searchbar={{
+                value: searchText,
+                onChangeText: setSearchText,
+                onSubmitEditing: () => search()
+            }} />
+            <Container
+                onScroll={
+                    Animated.event(
+                        [
+                            { nativeEvent: { contentOffset: { y: scrollOffsetY } } },
+
+                        ],
+                        { useNativeDriver: false },
+                    )
+                }
+                scrollEventThrottle={16}
+            >
                 <List
                     data={categorys}
                     renderItem={renderCategorysItem}
@@ -92,7 +83,7 @@ export default function Home({ navigation }) {
 
                 <List
                     title="Nesta semana"
-                    data={data}
+                    data={searchResult}
                     renderItem={renderEventsItem}
                     keyExtractor={(item, index) => index}
                     height="big"
