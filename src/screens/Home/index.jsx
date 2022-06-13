@@ -7,7 +7,7 @@ import { BottomSheet, Card, List } from "../../components"
 import { Container } from "./styles"
 import Details from "./Details"
 import { data } from "../../utils/data"
-import { categorys } from '../../utils/components'
+import { categories } from '../../utils/categories'
 import { useRef } from "react"
 import { Animated } from "react-native"
 
@@ -55,12 +55,17 @@ export default function Home({ navigation }) {
         setSearchResult(result)
     }
 
+    useEffect(() => {
+        search()
+    }, [searchText])
+
     return (
         <>
             <Header animatedRef={scrollOffsetY} searchbar={{
                 value: searchText,
                 onChangeText: setSearchText,
-                onSubmitEditing: () => search()
+                onSubmitEditing: () => search(),
+                onClear: () => setSearchText("")
             }} />
             <Container
                 onScroll={
@@ -75,7 +80,7 @@ export default function Home({ navigation }) {
                 scrollEventThrottle={16}
             >
                 <List
-                    data={categorys}
+                    data={categories}
                     renderItem={renderCategorysItem}
                     keyExtractor={(item, index) => index}
                     horizontal

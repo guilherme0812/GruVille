@@ -1,25 +1,44 @@
-import { useState } from "react"
-import { View, Text } from "react-native"
+import { useState, useEffect } from "react"
 import Header from "./Header"
 import Marker from "./Marker"
 import { BottomSheet } from "../../components"
 import Details from "./Details"
-import {data} from '../../utils/data'
+import { data } from '../../utils/data'
 
 import { MapContainer } from "./styles"
 
-export default function Map({ navigation, ...props }) {
+export default function Map() {
     const [bottomSheet, setBottomSheet] = useState({ visible: false, data: {} })
-    const [region, setRegion] = useState({
-        latitude: -26.3051,
-        longitude: -48.8461,
-        latitudeDelta: 0.095,
-        longitudeDelta: 0.095,
-    })
+    const [searchText, setSearchText] = useState("")
+    const [searchResult, setSearchResult] = useState(data)
+    function search() {
+        const result = data.filter(element =>
+            element.title.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+            ||
+            element.category.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+            ||
+            element.city.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+            ||
+            element.local.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+        )
+
+        setSearchResult(result)
+    }
+
+    useEffect(() => {
+        search()
+    }, [searchText])
 
     return (
-        <View>
-            <Header />
+        <>
+            <Header
+                searchbar={{
+                    value: searchText,
+                    onChangeText: setSearchText,
+                    onSubmitEditing: () => search(),
+                    onClear: () => setSearchText("")
+                }}
+            />
             <MapContainer
                 initialRegion={{
                     latitude: -26.3051,
@@ -29,7 +48,7 @@ export default function Map({ navigation, ...props }) {
                 }}
             >
                 {
-                    data.map((item, index) => (
+                    searchResult.map((item, index) => (
                         <Marker
                             key={index}
                             title={item.title}
@@ -48,6 +67,6 @@ export default function Map({ navigation, ...props }) {
             >
                 <Details data={bottomSheet.data} />
             </BottomSheet>
-        </View>
+        </>
     )
 }

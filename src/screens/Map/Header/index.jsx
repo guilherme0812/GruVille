@@ -2,10 +2,10 @@ import { SearchBar } from "../../../components"
 
 import { Container } from "./styles"
 
-export default function Header() {
+export default function Header({ searchbar }) {
     return (
         <Container>
-            <SearchBar placeholder="Busque...." />
+            <SearchBar placeholder="Procure por categoria, cidade, etc." {...searchbar} />
         </Container>
     )
 }

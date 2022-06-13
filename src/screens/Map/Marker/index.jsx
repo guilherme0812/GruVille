@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { Marker as MarkerContainer, Callout } from 'react-native-maps';
-import {categories} from '../../../utils/components'
+import {categories} from '../../../utils/categories'
 
 import { Pin, PinImage } from './styles';
 

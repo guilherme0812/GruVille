@@ -42,10 +42,6 @@ export default function Header({ animatedRef, searchbar }) {
         getWeather()
     }, [])
 
-    useEffect(() => {
-
-    }, [])
-
     return (
         <Container style={{ height: headerHeightInterpolate }}>
             <Content style={{ opacity: headerOpacityInterpolate }}>
@@ -53,7 +49,7 @@ export default function Header({ animatedRef, searchbar }) {
                 <Title>Onde iremos hoje?</Title>
                 <WeatherContainer>
                     <WeatherImage source={{ uri: weather && "https:" + weather.current.condition.icon }} />
-                    <WeatherText>{weather && weather.current.temp_c + "º"}</WeatherText>
+                    <WeatherText>{weather && weather.current.temp_c + "ºC"}</WeatherText>
                 </WeatherContainer>
             </Content>
             <SearchBar placeholder="Procure por categoria, cidade, etc." {...searchbar} />

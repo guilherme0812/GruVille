@@ -1,14 +1,14 @@
-import { Image, TouchableOpacity } from "react-native"
-import { Dot, Title } from "./styles"
+import { Image } from "react-native"
+import { Container, Dot, DotImage, Title } from "./styles"
 
 const Option = ({ title, image, ...props }) => {
 	return (
-		<TouchableOpacity {...props}>
+		<Container {...props}>
 			<Dot>
-				<Image source={image} />
+				<DotImage source={image} />
 			</Dot>
 			<Title>{title}</Title>
-		</TouchableOpacity>
+		</Container>
 	)
 }
 

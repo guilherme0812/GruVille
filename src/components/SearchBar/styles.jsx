@@ -9,7 +9,7 @@ export const Container = styled.View`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     border-radius: ${({ theme }) => theme.metrics.padding}px;
     background-color: ${({ theme }) => theme.colors.card};
 `
@@ -22,11 +22,27 @@ export const InputIcon = styled(Icon)`
     color: ${({ theme }) => theme.colors.textAlt};
 `
 
+export const ClearButton = styled.TouchableOpacity`
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: ${({ theme }) => theme.metrics.padding}px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: ${({ theme }) => theme.colors.secondary};
+`
+
+export const ClearButtonIcon = styled(Icon)`
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.secondaryContrast};
+`
+
 export const TextInput = styled.TextInput.attrs(({ theme }) => ({
     selectionColor: theme.colors.primary,
     placeholderTextColor: theme.colors.textAlt
 }))`
-    width: 100%;
+    width: 80%;
     height: 100%;
     padding-left: ${({ theme }) => theme.metrics.padding}px;
     color: ${({ theme }) => theme.colors.text};
