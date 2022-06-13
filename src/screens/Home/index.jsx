@@ -1,13 +1,16 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "./Header"
 import Option from "./Option"
 import { BottomSheet, Card, List } from "../../components"
+
+import { getCurrentWeather } from "../../services/climaTempoAPI"
 
 import { Container } from "./styles"
 import Details from "./Details"
 
 export default function Home({ navigation }) {
     const [bottomSheet, setBottomSheet] = useState({ visible: false, data: {} })
+    const [weather, setWeather] = useState()
     const data = [
         {
             cover: { uri: "https://files.nsctotal.com.br/s3fs-public/graphql-upload-files/festival-danca-joinville_3.jpg?_r.2Hx3E4zg9IeReCRCe_MyBJs3osjzD" },
@@ -67,9 +70,18 @@ export default function Home({ navigation }) {
         )
     }
 
+    useEffect(() => {
+        async function getWeather() {
+            await getCurrentWeather().then((res) => {
+                setWeather(res.data)
+            })
+        }
+        getWeather()
+    }, [])
+
     return (
         <>
-            <Header />
+            <Header weather={weather} />
             <Container>
                 <List
                     data={categorys}
@@ -86,6 +98,7 @@ export default function Home({ navigation }) {
                     height="big"
                     horizontal
                 />
+
                 <List
                     title="Na próxima semana"
                     data={data}
@@ -94,6 +107,7 @@ export default function Home({ navigation }) {
                     height="big"
                     horizontal
                 />
+
                 <List
                     title="Mês que vem"
                     data={data}

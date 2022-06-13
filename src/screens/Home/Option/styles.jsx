@@ -1,4 +1,5 @@
 import styled from "styled-components/native"
+import { Text } from "../../../components"
 
 export const Dot = styled.View`
 	width: 80px;
@@ -10,7 +11,7 @@ export const Dot = styled.View`
 	background-color: ${({ theme }) => theme.colors.backgroundDot};
 `
 
-export const Title = styled.Text`
+export const Title = styled(Text)`
 	font-family: "regular";
   	text-align: center;
 	text-transform: capitalize;

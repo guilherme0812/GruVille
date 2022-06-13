@@ -8,10 +8,10 @@ export const Container = styled.TouchableOpacity`
     align-items: center;
     justify-content: center;
     border-radius: ${({ theme }) => theme.metrics.padding}px;
-    background-color: ${({ type, theme }) => type === "secondary" ? "#ddd" : theme.colors.primary};
+    background-color: ${({ type, theme }) => type === "secondary" ? theme.colors.secondary : theme.colors.primary};
 `
 
 export const Title = styled(Text)`
     font-family: "bold";
-    color: ${({ type, theme }) => type === "secondary" ? theme.colors.text : theme.colors.textContrast};
+    color: ${({ type, theme }) => type === "secondary" ? theme.colors.secondaryContrast : theme.colors.textContrast};
 `

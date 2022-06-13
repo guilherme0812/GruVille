@@ -17,11 +17,10 @@ import { Provider, useSelector, useDispatch } from "react-redux"
 import { PersistGate } from "redux-persist/integration/react"
 import { store, persistor } from "./src/redux"
 import { ThemeProvider } from "styled-components/native"
-import { resetAction } from "./src/redux/modules/settings/actions"
+import { resetAction, switchThemeAction } from "./src/redux/modules/settings/actions"
 
 import moment from "moment"
 import 'moment/min/locales'
-import getTheme from "./src/theme"
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 moment.updateLocale('pt-br')
 
@@ -30,7 +29,16 @@ function AppContent() {
 	const dispatch = useDispatch()
 
 	useEffect(() => {
-		dispatch(resetAction())
+		const hour = moment(new Date()).format("h")
+		const ampm = moment(new Date()).format("A")
+
+		if (hour >= 12 && hour <= 8 && ampm === "AM") {
+			dispatch(switchThemeAction("night"))
+		} else if (hour >= 6 && hour <= 11 && ampm === "PM") {
+			dispatch(switchThemeAction("night"))
+		} else {
+			dispatch(switchThemeAction(""))
+		}
 	}, [])
 
 	let [fontsLoaded] = useFonts({
@@ -43,8 +51,8 @@ function AppContent() {
 	if (fontsLoaded) {
 		return (
 			<GestureHandlerRootView style={{ flex: 1 }}>
-				<NavigationContainer theme={getTheme()}>
-					<ThemeProvider theme={getTheme()}>
+				<NavigationContainer theme={theme}>
+					<ThemeProvider theme={theme}>
 						<StatusBar />
 						<Navigation />
 					</ThemeProvider>

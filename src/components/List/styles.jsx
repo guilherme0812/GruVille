@@ -2,7 +2,7 @@ import styled from "styled-components/native"
 import Text from "../Text"
 
 export const Container = styled.View`
-    height: ${({ height }) => height === "big" ? "420px" : "auto"};
+    height: ${({ height }) => height === "big" ? "424px" : "auto"};
     margin-bottom: ${({ height, theme }) => height === "big" ? "0" : theme.metrics.padding * 2}px;
 `
 
