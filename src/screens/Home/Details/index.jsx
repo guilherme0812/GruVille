@@ -1,5 +1,5 @@
-import { ScrollView, TouchableOpacity, View } from "react-native"
-import { Icon, Text, Button } from "../../../components"
+import { ScrollView, TouchableOpacity, View,  } from "react-native"
+import { Icon, Button,Text } from "../../../components"
 
 import { Container, Header, Image, Subtitle, Title, SecondaryButton } from "./styles"
 

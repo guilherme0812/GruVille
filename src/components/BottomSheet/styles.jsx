@@ -2,7 +2,7 @@ import styled from "styled-components/native"
 import BottomSheet, { BottomSheetBackdrop, BottomSheetHandle } from '@gorhom/bottom-sheet';
 
 export const Container = styled(BottomSheet).attrs((props) => ({
-    snapPoints: props.snapPoints ?? ["90%"],
+    snapPoints: props.snapPoints ?? ["94%"],
     backgroundStyle: {
         backgroundColor: props.theme.colors.background,
     },

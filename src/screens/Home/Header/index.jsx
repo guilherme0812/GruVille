@@ -13,7 +13,7 @@ export default function Header({ animatedRef, searchbar }) {
     const theme = useTheme()
     const headerHeightInterpolate = animatedRef.interpolate({
         inputRange: [0, theme.metrics.headerHeight],
-        outputRange: [theme.metrics.headerHeight, 120],
+        outputRange: [theme.metrics.headerHeight, theme.metrics.collapsedHeaderHeight],
         extrapolate: "clamp"
     })
     const headerOpacityInterpolate = animatedRef.interpolate({

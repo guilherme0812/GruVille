@@ -23,15 +23,15 @@ export const nightTheme = {
     dark: true,
     colors: {
         ...DarkTheme.colors,
-        primary: "#504E99",
+        primary: "#6361C0",
         secondary: "#C2C2C2",
         secondaryContrast: "#000000",
         text: "#ffffff",
         textAlt: "#C2C2C2",
         textContrast: "#ffffff",
-        card: "#16162C",
-        shadow: "#000000",
-        background: "#0C0C18",
-        backgroundDot: "#16162C",
+        card: "#303030",
+        shadow: "#4B4B4B",
+        background: "#181818",
+        backgroundDot: "#303030",
     }
 }

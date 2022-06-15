@@ -33,9 +33,9 @@ function AppContent() {
 		const ampm = moment(new Date()).format("A")
 
 		if (hour >= 12 && hour <= 8 && ampm === "AM") {
-			dispatch(switchThemeAction("night"))
+			dispatch(switchThemeAction(""))
 		} else if (hour >= 6 && hour <= 11 && ampm === "PM") {
-			dispatch(switchThemeAction("night"))
+			dispatch(switchThemeAction(""))
 		} else {
 			dispatch(switchThemeAction(""))
 		}

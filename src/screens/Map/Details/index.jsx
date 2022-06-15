@@ -8,12 +8,12 @@ export default function Details({ data, ...props }) {
         <Container>
             <Header>
                 <Image source={data.cover} />
-                <View style={{ height: 100, justifyContent: "space-evenly" }}>
-                    <View>
+                <View style={{ width: "100%", height: 100, justifyContent: "space-evenly" }}>
+                    <View style={{width: "100%"}}>
                         <Title>{data.title}</Title>
                         <Subtitle>{data.local}</Subtitle>
                     </View>
-                    <View>
+                    <View style={{width: "100%"}}>
                         <OtherInfoContainer>
                             <OtherInfoIcon name="map-pin" />
                             <OtherInfoText>{data.address}</OtherInfoText>

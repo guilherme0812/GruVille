@@ -24,6 +24,7 @@ export const Image = styled.Image`
 `
 
 export const Title = styled(Text)`
+    width: 64%;
     font-family: "bold";
 `
 
@@ -46,6 +47,7 @@ export const OtherInfoIcon = styled(Icon)`
 `
 
 export const OtherInfoText = styled(Text)`
+    width: 60%;
     font-size: 12px;
     color: ${({ theme }) => theme.colors.textAlt};
 `

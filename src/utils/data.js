@@ -1,80 +1,102 @@
+import moment from "moment"
+
 export const data = [
 	{
 		cover: { uri: "https://files.nsctotal.com.br/s3fs-public/graphql-upload-files/festival-danca-joinville_3.jpg?_r.2Hx3E4zg9IeReCRCe_MyBJs3osjzD" },
 		title: "Festival de Dança 2022",
 		local: "Centreventos Cau Hansen",
 		address: "Av. José Vieira, 315 - América",
-		date: new Date("2022/07/19"),
+		date: moment("2022/07/19"),
 		startTime: "20:00",
 		endTime: "22:00",
 		description: "Uma breve descrição do evento clicado anteriormente pelo usuário.",
 		cordinate: { latitude: -26.3051, longitude: -48.8461 },
 		category: "música",
-		city: "Joinville"
+		city: "Joinville",
+		url: ""
 	},
 	{
 		cover: { uri: "https://cafeviagem.com/wp-content/uploads/2019/05/vinicolas-em-Santa-Catarina-d3.jpg" },
 		title: "Degustação de vinhos",
 		local: "Vinícola D'alture",
 		address: "Rodovia SC 114",
-		date: new Date("2022/07/20"),
+		date: moment("2022/07/19"),
 		startTime: "07:30",
 		endTime: "09:00",
 		description: "Uma breve descrição do evento clicado anteriormente pelo usuário.",
 		cordinate: { latitude: -26.2900, longitude: -48.8200 },
-		category: "cinema",
-		city: "Joinville"
+		category: "gastronomia",
+		city: "Joinville",
+		url: ""
 	},
 	{
-		cover: { uri: "https://cafeviagem.com/wp-content/uploads/2019/05/vinicolas-em-Santa-Catarina-d3.jpg" },
+		cover: { uri: "https://www.olimpiadatododia.com.br/wp-content/uploads/2020/10/tenis-de-mesa-geral-yamada-kumahara-missao-europa-e1602864219645.jpg" },
 		title: "Ping Pong",
 		local: "Centreventos Cau Hansen",
 		address: "Av. José Vieira, 315 - América, Joinville - SC, 89204-110",
-		date: new Date("2022/07/20"),
+		date: moment("2022/07/20"),
 		startTime: "07:30",
 		endTime: "09:00",
 		description: "Campeonato de ping pong ( solo e duplas )",
 		cordinate: { latitude: -26.302624641543016, longitude: -48.88064146131631 },
 		category: "esporte",
-		city: "Joinville"
+		city: "Joinville",
+		url: ""
 	},
 	{
-		cover: { uri: "https://cafeviagem.com/wp-content/uploads/2019/05/vinicolas-em-Santa-Catarina-d3.jpg" },
-		title: "Projeto x",
+		cover: { uri: "https://www.keeperformaturas.com.br/blog/wp-content/uploads/2019/07/O-que-observar-ao-visitar-uma-festa-de-formatura.jpg" },
+		title: "Projeto X",
 		local: "Casa de eventos - Super Show",
 		address: "R. Visc. de Taunay - Atiradores",
-		date: new Date("2022/07/20"),
+		date: moment("2022/06/20"),
 		startTime: "07:30",
-		endTime: "09:00",
+		endTime: "00:00",
 		description: "Beber até cair ou até desmaiar, vape e narguilé pra fumar, chame seus amigos pra fazer a noite valer a pena, esqueça tudo!",
 		cordinate: { latitude: -26.305694, longitude: -48.852750 },
-		category: "gastronomia",
-		city: "Joinville"
+		category: "festa",
+		city: "Joinville",
+		url: ""
 	},
 	{
-		cover: { uri: "https://cafeviagem.com/wp-content/uploads/2019/05/vinicolas-em-Santa-Catarina-d3.jpg" },
+		cover: { uri: "https://portal.fgv.br/sites/portal.fgv.br/files/styles/noticia_geral/public/noticias/10/19/futebol.jpg?itok=DK6Om2Rk" },
 		title: "Futebol",
-		local: "Vinícola D'alture",
+		local: "Futebol Club",
 		address: "Rodovia SC 114",
-		date: new Date("2022/07/13"),
+		date: moment("2022/06/15"),
 		startTime: "07:30",
 		endTime: "09:00",
 		description: "Bora bater um bola, quem ganhar leva cerveja pra casa!",
 		cordinate: { latitude: -26.312975, longitude: -48.847298 },
 		category: "esporte",
-		city: "Joinville"
+		city: "Joinville",
+		url: ""
 	},
 	{
-		cover: { uri: "https://cafeviagem.com/wp-content/uploads/2019/05/vinicolas-em-Santa-Catarina-d3.jpg" },
+		cover: { uri: "http://s2.glbimg.com/obvRRU89kSDOO2T2lu036o6D2yg=/e.glbimg.com/og/ed/f/original/2015/07/17/cubo-magico1.jpg" },
 		title: "Campeonato de cubo mágico",
 		local: "Ágora Tecpark",
 		address: "R. Dona Francisca, 8300 - Distrito Industrial, Joinville - SC, 89219-600",
-		date: new Date("2022/07/13"),
+		date: moment("2022/06/16"),
 		startTime: "07:30",
 		endTime: "09:00",
 		description: "Bora bater um bola, quem ganhar leva cerveja pra casa!",
 		cordinate: { latitude: -26.23620510731389, longitude: -48.88261322193677 },
 		category: "esporte",
-		city: "Joinville"
+		city: "Joinville",
+		url: ""
+	},
+	{
+		cover: { uri: "https://store-images.s-microsoft.com/image/apps.34080.13510798887528624.ea88a7e6-557c-4ad5-99d7-c574f430c827.3c187ff1-754c-409a-9085-8e3aac2d97c5?mode=scale&q=90&h=1080&w=1920" },
+		title: "Bingo",
+		local: "Bingolândia",
+		address: "R. Max Lepper, 118 - Costa e Silva, Joinville - SC, 89217-360",
+		date: moment("2022/06/16"),
+		startTime: "15:00",
+		endTime: "19:00",
+		description: "Jogatina de bingo com prêmios diferenciados para os ganhadores das noites, venha se divertir e tentar ganhar várias surpresas!",
+		cordinate: { latitude: -26.300, longitude: -48.900 },
+		category: "jogos",
+		city: "Joinville",
+		url: ""
 	},
 ]

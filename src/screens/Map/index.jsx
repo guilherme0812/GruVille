@@ -4,6 +4,7 @@ import Marker from "./Marker"
 import { BottomSheet } from "../../components"
 import Details from "./Details"
 import { data } from '../../utils/data'
+import moment from "moment"
 
 import { MapContainer } from "./styles"
 
@@ -11,6 +12,7 @@ export default function Map() {
     const [bottomSheet, setBottomSheet] = useState({ visible: false, data: {} })
     const [searchText, setSearchText] = useState("")
     const [searchResult, setSearchResult] = useState(data)
+
     function search() {
         const result = data.filter(element =>
             element.title.toLowerCase().indexOf(searchText.toLowerCase()) > -1
@@ -43,8 +45,8 @@ export default function Map() {
                 initialRegion={{
                     latitude: -26.3051,
                     longitude: -48.8461,
-                    latitudeDelta: 0.095,
-                    longitudeDelta: 0.095,
+                    latitudeDelta: 0.14,
+                    longitudeDelta: 0.14,
                 }}
             >
                 {
@@ -63,7 +65,7 @@ export default function Map() {
             <BottomSheet
                 visible={bottomSheet.data != {} ? bottomSheet.visible : false}
                 onChange={() => setBottomSheet({ ...bottomSheet, visible: false })}
-                snapPoints={["20%", "90%"]}
+                snapPoints={["22%", "94%"]}
             >
                 <Details data={bottomSheet.data} />
             </BottomSheet>
